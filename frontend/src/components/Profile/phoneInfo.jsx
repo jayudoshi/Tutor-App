@@ -105,7 +105,7 @@ const PhoneInfo = () => {
                 focus: true,
                 valid: false
             }))
-            fetch( baseUrl + "/otp/getOTP" , {
+            fetch( baseUrl + "otp/getOTP" , {
                 method: "POST",
                 headers: {
                     'Content-Type':'application/json'
@@ -146,7 +146,7 @@ const PhoneInfo = () => {
         event.preventDefault();
         setDisplayResend(false)
         setDisableInput(true)
-        fetch(baseUrl + "/otp/register" , {
+        fetch(baseUrl + "otp/register" , {
             method: "POST",
             headers: {
                 'Content-Type':'application/json'

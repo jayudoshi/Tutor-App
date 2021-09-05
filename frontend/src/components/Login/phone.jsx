@@ -107,7 +107,7 @@ const OTPView = (props) => {
                 focus: true,
                 valid: false
             }))
-            fetch( baseUrl + "/otp/generateOTP" , {
+            fetch( baseUrl + "otp/generateOTP" , {
                 method: "POST",
                 headers: {
                     'Content-Type':'application/json'
@@ -148,7 +148,7 @@ const OTPView = (props) => {
         event.preventDefault();
         setDisplayResend(false)
         setDisableInput(true)
-        fetch(baseUrl + "/otp/login" , {
+        fetch(baseUrl + "otp/login" , {
             method: "POST",
             headers: {
                 'Content-Type':'application/json'

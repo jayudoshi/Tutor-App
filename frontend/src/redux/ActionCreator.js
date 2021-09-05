@@ -40,9 +40,9 @@ export const updateprofile = (payload) => ({
 export const updateUser = (userUpdate , profileUpdate , role) => (dispatch) => {
     let url="";
     if(role === "Tutor"){
-        url = baseUrl + "/users/updateProfile/tutor"
+        url = baseUrl + "users/updateProfile/tutor"
     }else if(role === "Student"){
-        url = baseUrl + "/users/updateProfile/student"
+        url = baseUrl + "users/updateProfile/student"
     }
     if(profileUpdate && !userUpdate){
         fetch(url, {
@@ -63,7 +63,7 @@ export const updateUser = (userUpdate , profileUpdate , role) => (dispatch) => {
         })
     }
     if(userUpdate && !profileUpdate){
-        fetch(baseUrl + "/users", {
+        fetch(baseUrl + "users", {
             method:"PUT",
             headers: {
                 'Content-Type':'application/json',
@@ -94,7 +94,7 @@ export const updateUser = (userUpdate , profileUpdate , role) => (dispatch) => {
             if(resp.err){
                 console.log(resp.err);
             }else{
-                fetch(baseUrl + "/users", {
+                fetch(baseUrl + "users", {
                     method:"PUT",
                     headers: {
                         'Content-Type':'application/json',
@@ -120,7 +120,7 @@ export const updateuser = (user) => ({
 })
 
 export const fetchCourses = () => (dispatch) => {
-    fetch(baseUrl + "/courses", {
+    fetch(baseUrl + "courses", {
         method:"GET",
         headers: {
             'Authorization' : 'Bearer ' + JSON.parse(localStorage.getItem('token'))

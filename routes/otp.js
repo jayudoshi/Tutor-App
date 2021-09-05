@@ -52,30 +52,7 @@ otpRouter.post('/generateOTP' , cors.corsWithOpts , (req,res,next) => {
                             res.json({success:false , status:"OTP Registration Failed !!"})
                         }
                     }
-                    // generator() TEMP
-                    const otp = "5454";
-                    if(otp){
-                        Otps.deleteOne({phoneNo:req.body.phoneNo} , (err , resp) => {
-                            if(err){
-                                res.statusCode = 500;
-                                res.json({err:err})
-                            }
-                        })
-                        Otps.create({
-                            phoneNo:req.body.phoneNo,
-                            otp: otp
-                        } , (err , otpDoc) => {
-                            if(err){
-                                res.statusCode = 500;
-                                res.setHeader('Content-Type','application/json');
-                                res.json({success:false , status:"Bad Request" , err:err})
-                            }else{
-                                res.statusCode = 200;
-                                res.setHeader('Content-Type','application/json');
-                                res.json({success:true ,status:"Request Successfull" , msg:"OTP send to XXXXX " + req.body.phoneNo.substring(6,10)})  
-                            }
-                        })
-                    }
+                    generator()
                 }
             }
         })
@@ -181,29 +158,7 @@ otpRouter.post('/getOTP' , cors.corsWithOpts , (req,res,next) => {
                             res.json({success:false , status:"Bad Request" , err:"OTP Registration Failed !!"})
                         }
                     }
-                    // generator()
-                    //temp
-                    const otp =5454;
-                    Otps.deleteOne({phoneNo:req.body.phoneNo} , (err , resp) => {
-                        if(err){
-                            res.statusCode = 500;
-                            res.json({err:err})
-                        }
-                    })
-                    Otps.create({
-                        phoneNo:req.body.phoneNo,
-                        otp: otp
-                    } , (err , otpDoc) => {
-                        if(err){
-                            res.statusCode = 500;
-                            res.setHeader('Content-Type','application/json');
-                            res.json({success:false , status:"Bad Request" , err:err})
-                        }else{
-                            res.statusCode = 200;
-                            res.setHeader('Content-Type','application/json');
-                            res.json({success:true ,status:"Request Successfull" , msg:"OTP send to XXXXX " + req.body.phoneNo.substring(6,10)})  
-                        }
-                    })
+                    generator()
                 }
             }
         })

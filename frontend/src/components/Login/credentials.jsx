@@ -112,7 +112,7 @@ function Login_Credentials(props){
 
     function handleSubmit(event){
         event.preventDefault();
-        fetch(baseUrl + "/users/login" , {
+        fetch(baseUrl + "users/login" , {
             method: "POST",
             headers: {
                 'Content-Type':'application/json'

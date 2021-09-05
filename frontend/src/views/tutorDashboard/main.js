@@ -17,6 +17,7 @@ function Main(props){
     const [pusher , setPusher] = useState()
 
     const addInvite = (resp) => {
+        console.log(resp)
         if(props.courses){
             let i = null;
             let Course = null
@@ -26,7 +27,7 @@ function Main(props){
                     Course =  course
                 }
             })
-            if( i && Course){
+            if( i !== null && Course !== null){
                 const arr = Course.invites.filter(invite => invite._id === resp.invite._id);
                 if(arr.length === 0 ){
                     Course.invites = [resp.invite , ...Course.invites]

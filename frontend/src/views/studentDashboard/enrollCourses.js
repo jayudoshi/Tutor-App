@@ -10,7 +10,7 @@ function EnrollCourses(props){
 
     useEffect(() => {
         if(!courses){
-            fetch(baseUrl + "/courses/getCourses" , {
+            fetch(baseUrl + "courses/getCourses" , {
                 method:"GET",
                 headers: {
                     'Authorization' : 'Bearer ' + JSON.parse(localStorage.getItem('token'))

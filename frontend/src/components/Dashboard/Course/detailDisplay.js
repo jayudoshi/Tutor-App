@@ -57,7 +57,7 @@ function DetialDisplay(props){
         setDisableSave(true)
         setDisableEdit(false)
         if(change){
-            fetch(baseUrl + "/courses/" + course._id , {
+            fetch(baseUrl + "courses/" + course._id , {
                 method:"PUT",
                 headers: {
                     'Content-Type':'application/json',

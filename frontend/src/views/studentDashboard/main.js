@@ -29,8 +29,9 @@ function Main(props){
     },[])
     
     const updateInvite = (resp) => {
+        console.log(resp)
         if(props.invites){
-            if(resp.invite && !resp.course){
+            if(resp.invite.status === 'Declined' && !resp.course){
                 let i = null;
                 let Invite = null;
                 props.invites.map( (invite , index) => {
@@ -40,7 +41,7 @@ function Main(props){
                     }
                     return 1
                 })
-                if(Invite && i){
+                if( i !== null && Invite !== null){
                     Invite.status = resp.invite.status;
                     const Invites = props.invites;
                     Invites[i] = Invite
@@ -48,7 +49,7 @@ function Main(props){
                 }
                 
             }
-            else if(resp.invite && resp.course){
+            else if(resp.invite.status === "Accepted" && resp.course){
                 let i = null;
                 let Invite = null;
                 props.invites.map( (invite , index) => {
@@ -58,7 +59,7 @@ function Main(props){
                     }
                     return 1
                 })
-                if(Invite && i){
+                if( i !== null && Invite !== null){
                     Invite.status = resp.invite.status;
                     const Invites = props.invites;
                     Invites[i] = Invite

@@ -8,7 +8,7 @@ const sendOTP = async(msgType , phoneNo) => {
     senderId = "&sender_id=" + process.env.SENDERID;
     const number= "&numbers=" + phoneNo;
     let message = "";
-    const otp = otpGenerator.generate(6,{alphabets:false , upperCase:false , specialChars:false});
+    const otp = otpGenerator.generate(4,{alphabets:false , upperCase:false , specialChars:false});
     if(msgType === "Registration"){
         message= "&message=Vidyayan Tutor App\n\nYour OTP for registration is " + otp + "\nValid for 3min\n\n";
     }else if(msgType === "Login"){

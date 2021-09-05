@@ -16,7 +16,7 @@ function CourseDetail(props){
     const [declinedInvites , setDeclined] = useState([])
     const [students , setStudents] = useState([...props.course.students])
     useEffect(() => {
-        fetch(baseUrl + "/invites?courseId=" + props.course._id , {
+        fetch(baseUrl + "invites?courseId=" + props.course._id , {
             method:"GET",
             headers: {
                 'Content-Type':'application/json',

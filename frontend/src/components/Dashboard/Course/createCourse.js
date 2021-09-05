@@ -304,7 +304,7 @@ function CreateCourse(props){
         formData.append('file',file)
 
         // setDisabled(true);
-        fetch(baseUrl + "/courses" , {
+        fetch(baseUrl + "courses" , {
             method:"POST",
             headers: {
                 'Authorization' : 'Bearer ' + JSON.parse(localStorage.getItem('token'))
@@ -352,7 +352,7 @@ function CreateCourse(props){
             <Card className="dashview p-3">
                 <CardTitle tag="h3" className="footer-text m-0">Create a Course</CardTitle>
                 <CardBody style={{paddingTop:"0px"}}>
-                    <Form onSubmit={handleSubmit} style={{color:"#9A9A9A"}} enctype="multipart/form-data">
+                    <Form onSubmit={handleSubmit} style={{color:"#9A9A9A"}} encType="multipart/form-data">
                     <FormGroup className="mt-3" >
                         <div className="row">
                             <div className="col-6" style={{fontSize:"1.25rem"}}>
@@ -552,7 +552,7 @@ function CreateCourse(props){
                                     <FormFeedback style={{color:"red" , display:"block"}}>{name.err}</FormFeedback>
                                 </FormGroup>
                             </div>
-                            <div className="col-6" style={{fontSize:"1.25rem"}}>
+                            <div className="col-6 overflow-hidden" style={{fontSize:"1.25rem"}}>
                                 <FormGroup style={{marginTop:"3px"}}>
                                     <Label className="p-0" size="lg">Image</Label>
                                     <Input style={{color:"#9A9A9A" , borderRadius:"0px" , fontSize:"1.25rem" , borderColor:"lightgrey" , borderTop:"0" , borderLeft:"0" , borderRight:"0"}} 

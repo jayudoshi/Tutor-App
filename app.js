@@ -24,7 +24,28 @@ app.use('/courses' , coursesRouter);
 app.use('/invites' , invitesRouter);
 app.use('/tasks',tasksRouter);
 app.use('/otp' , otpRouter);
-// app.use('/changeStreams' , changeStreamRouter)
+
+if(process.env.NODE_ENV === "production"){
+  app.use(express.static(path.join(__dirname,'/frontend/build')));
+  app.get('*', function (req, res) {
+     res.sendFile(path.join(__dirname, 'frontend' , 'build', 'index.html'));
+   });
+}else{
+  app.get('*' , (req,res) => {
+      res.send("Api running !!");
+  })
+}
+
+// if(process.env.NODE_ENV === "production"){
+//   app.use(express.static(path.join(__dirname, 'frontend/build')));
+//   app.get('/', function (req, res) {
+//   res.sendFile(path.join(__dirname, 'frontend' , 'build' , 'index.html'));
+//   });
+// }else{
+//   app.get('*' , (req,res) => {
+//       res.send("Hi");
+//   })
+// }
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

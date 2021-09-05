@@ -11,7 +11,7 @@ function App(props){
 
     useEffect(() => {
         if(!invites){
-            fetch(baseUrl + "/invites" , {
+            fetch(baseUrl + "invites" , {
                 method:"GET",
                 headers: {
                     'Authorization' : 'Bearer ' + JSON.parse(localStorage.getItem('token'))
@@ -27,7 +27,7 @@ function App(props){
             })
         }
         if(!courses){
-            fetch(baseUrl + "/courses" , {
+            fetch(baseUrl + "courses" , {
                 method:"GET",
                 headers: {
                     'Authorization' : 'Bearer ' + JSON.parse(localStorage.getItem('token'))

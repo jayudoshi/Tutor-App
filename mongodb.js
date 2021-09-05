@@ -43,7 +43,7 @@ mongoose.connect( DB_URL, { useNewUrlParser: true, useUnifiedTopology: true }, (
                 .populate('course')
             }else if(change.operationType === 'update'){
                 const Invite = change.fullDocument;
-                if(Invite.status = 'Declined'){
+                if(Invite.status === 'Declined'){
                     const from = Invite.from
                     Invites.findById(Invite._id , (err,invite) => {
                         if(err){
@@ -58,7 +58,7 @@ mongoose.connect( DB_URL, { useNewUrlParser: true, useUnifiedTopology: true }, (
                             );
                         }
                     })
-                }else if(Invite.status = 'Accepted'){
+                }else if(Invite.status === 'Accepted'){
                     const from = Invite.from
                     const course = Invite.course
                     Invites.findById(Invite._id , (err,invite) => {
@@ -71,7 +71,7 @@ mongoose.connect( DB_URL, { useNewUrlParser: true, useUnifiedTopology: true }, (
                                 }else{
                                     pusher.trigger(
                                         'Invites-' + from,
-                                        'inserted', 
+                                        'updated', 
                                         {
                                           invite: invite,
                                           course: course

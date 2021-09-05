@@ -16,7 +16,7 @@ function AllInvites(props){
                             users.push(invite.from)
                         }
                     })
-                    fetch(baseUrl + "/users/all" , {
+                    fetch(baseUrl + "users/all" , {
                         method:"POST",
                         headers:{
                             'Content-Type':'application/json',
@@ -129,7 +129,7 @@ function AllInvites(props){
     }
 
     function handleDecline(invite){
-        fetch(baseUrl + "/invites/" + invite._id , {
+        fetch(baseUrl + "invites/" + invite._id , {
             method:"PUT",
             headers: {
                 'Content-Type':'application/json',
@@ -163,7 +163,7 @@ function AllInvites(props){
     }
 
     function handleAccept(invite){
-        fetch(baseUrl + "/invites/" + invite._id , {
+        fetch(baseUrl + "invites/" + invite._id , {
             method:"PUT",
             headers: {
                 'Content-Type':'application/json',
@@ -202,7 +202,7 @@ function AllInvites(props){
             invites.map(invite => {
                 ids.push(invite._id)
             })
-            fetch(baseUrl + "/invites/all" , {
+            fetch(baseUrl + "invites/all" , {
                 method:"PUT",
                 headers: {
                     'Content-Type':'application/json',
@@ -240,7 +240,7 @@ function AllInvites(props){
             invites.map(invite => {
                 ids.push(invite._id)
             })
-            fetch(baseUrl + "/invites/all" , {
+            fetch(baseUrl + "invites/all" , {
                 method:"PUT",
                 headers: {
                     'Content-Type':'application/json',

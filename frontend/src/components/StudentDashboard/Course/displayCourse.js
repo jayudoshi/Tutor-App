@@ -14,7 +14,7 @@ function DisplayCourse(props){
     const [invites , setInvites] = useState(props.invites);
 
     function handleClick(course){
-        fetch(baseUrl + "/invites" , {
+        fetch(baseUrl + "invites" , {
             method:"POST",
             headers: {
                 'Content-Type':'application/json',

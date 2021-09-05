@@ -43,7 +43,7 @@ const StudentInfo = (props) => {
 
     function handleSubmit(event){
         event.preventDefault();
-        fetch(baseUrl + "/users/updateProfile/student" , {
+        fetch(baseUrl + "users/updateProfile/student" , {
             method:"POST",
             headers: {
                 'Content-Type':'application/json',

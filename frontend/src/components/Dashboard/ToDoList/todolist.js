@@ -19,7 +19,7 @@ function ToDoListApp(props){
 
     useEffect(() => {
         if(!tasks){
-            fetch(baseUrl + "/tasks" , {
+            fetch(baseUrl + "tasks" , {
                 method:"GET",
                 headers:{
                     'Authorization' : 'Bearer ' + JSON.parse(localStorage.getItem('token'))
@@ -38,7 +38,7 @@ function ToDoListApp(props){
 
     function handleClick(event){
         event.preventDefault();
-        fetch(baseUrl + "/tasks" , {
+        fetch(baseUrl + "tasks" , {
             method:"PUT",
             headers:{
                 'Content-Type':'application/json',
@@ -67,7 +67,7 @@ function ToDoListApp(props){
             prevState[index] = task
             return [...prevState]
         })
-        fetch(baseUrl + "/tasks/" + task._id , {
+        fetch(baseUrl + "tasks/" + task._id , {
             method:"PUT",
             headers:{
                 'Content-Type':'application/json',
@@ -88,7 +88,7 @@ function ToDoListApp(props){
             prevState = prevState.filter(Task => Task._id !== task._id)
             return [...prevState]
         })
-        fetch(baseUrl + "/tasks/" + task._id , {
+        fetch(baseUrl + "tasks/" + task._id , {
             method:"DELETE",
             headers:{
                 'Content-Type':'application/json',

@@ -167,7 +167,7 @@ const TutorInfo = (props) => {
 
     function handleSubmit(event){
         event.preventDefault()
-        fetch(baseUrl + "/users/updateProfile/tutor" , {
+        fetch(baseUrl + "users/updateProfile/tutor" , {
             method:"POST",
             headers: {
                 'Content-Type':'application/json',

@@ -204,7 +204,7 @@ const SignUp = (props) => {
             lname: credentials.lname,
             role: credentials.tutor ? "Tutor" : "Student"
         }
-        fetch(baseUrl + "/users/register" , {
+        fetch(baseUrl + "users/register" , {
             method: "POST",
             headers: {
                 'Content-Type':'application/json'

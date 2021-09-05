@@ -10,7 +10,7 @@ function App(props){
 
     useEffect(() => {
         if(!courses){
-            fetch(baseUrl + "/courses", {
+            fetch(baseUrl + "courses", {
                 method:"GET",
                 headers: {
                     'Authorization' : 'Bearer ' + JSON.parse(localStorage.getItem('token'))
