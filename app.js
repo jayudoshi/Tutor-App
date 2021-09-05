@@ -1,7 +1,6 @@
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
-var logger = require('morgan');
 require('dotenv').config()
 
 var usersRouter = require('./routes/users');
@@ -14,7 +13,6 @@ require('./mongodb');
 
 var app = express();
 
-app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
@@ -35,17 +33,6 @@ if(process.env.NODE_ENV === "production"){
       res.send("Api running !!");
   })
 }
-
-// if(process.env.NODE_ENV === "production"){
-//   app.use(express.static(path.join(__dirname, 'frontend/build')));
-//   app.get('/', function (req, res) {
-//   res.sendFile(path.join(__dirname, 'frontend' , 'build' , 'index.html'));
-//   });
-// }else{
-//   app.get('*' , (req,res) => {
-//       res.send("Hi");
-//   })
-// }
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
