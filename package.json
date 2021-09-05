@@ -6,6 +6,9 @@
     "start": "node ./bin/www",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix frontend && npm run build --prefix frontend"
   },
+  "engines": {
+    "node": ">14.0.0"
+  },
   "dependencies": {
     "axios": "^0.21.1",
     "debug": "~2.6.9",
